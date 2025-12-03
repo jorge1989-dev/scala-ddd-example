@@ -1,5 +1,6 @@
 package tv.codely.mooc.api
 
+import tv.codely.mooc.api.controller.hello.HelloGetController
 import tv.codely.mooc.api.controller.status.StatusGetController
 import tv.codely.mooc.api.controller.user.{UserGetController, UserPostController}
 import tv.codely.mooc.api.controller.video.{VideoGetController, VideoPostController}
@@ -11,6 +12,7 @@ final class EntryPointDependencyContainer(
     videoDependencies: VideoModuleDependencyContainer
 ) {
   val statusGetController = new StatusGetController
+  val helloGetController  = new HelloGetController
 
   val userGetController  = new UserGetController(userDependencies.usersSearcher)
   val userPostController = new UserPostController(userDependencies.userRegistrar)
